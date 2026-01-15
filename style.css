@@ -2,82 +2,60 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
 }
 
 body {
-  background: radial-gradient(circle at top, #0b132b, #000);
+  background: radial-gradient(circle at top, #0b1d26, #000);
   height: 100vh;
   overflow: hidden;
-  color: white;
 }
 
-/* Landing section */
-.hero {
-  position: relative;
-  z-index: 20;
-  text-align: center;
-  padding-top: 12vh;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  opacity: 0.8;
-}
-
-.hero button {
-  margin-top: 20px;
-  padding: 12px 30px;
-  border: none;
-  border-radius: 30px;
-  background: #ff79c6;
-  color: white;
-  cursor: pointer;
-  box-shadow: 0 0 20px #ff79c6;
-}
-
-/* Flower field */
-.field {
+/* Scene */
+.scene {
   position: absolute;
   bottom: 0;
   width: 100%;
-  display: flex;
-  justify-content: space-evenly;
+  height: 60vh;
 }
 
-/* Flower */
+/* Flower base (exact like your screenshot logic) */
 .flower {
-  position: relative;
-  animation: sway 4s ease-in-out infinite;
+  position: absolute;
+  bottom: 10vmin;
+  left: 50%;
+  transform: translateX(-50%);
   transform-origin: bottom center;
-  filter: drop-shadow(0 0 10px rgba(255, 182, 193, 0.6));
+  z-index: 10;
+  --fl-speed: 0.8s;
+  animation: sway calc(var(--fl-speed) * 6) ease-in-out infinite;
+  filter: drop-shadow(0 0 15px rgba(120,255,255,0.6));
 }
 
-.flower.delay {
-  animation-delay: 2s;
+.flower.small {
+  left: 60%;
+  bottom: 8vmin;
+  transform: scale(0.8);
+  opacity: 0.8;
 }
 
 /* Stem */
 .stem {
+  display: block;
   width: 6px;
   height: 140px;
-  background: linear-gradient(#2ecc71, #27ae60);
-  border-radius: 10px;
+  background: linear-gradient(#2ed573, #1eae60);
   margin: auto;
+  border-radius: 10px;
 }
 
 /* Petals */
 .petal {
   position: absolute;
-  width: 45px;
-  height: 65px;
-  background: radial-gradient(circle, #ffb6c1, #ff69b4);
+  width: 42px;
+  height: 62px;
+  background: linear-gradient(#b9fff8, #6ae3da);
   border-radius: 50%;
-  top: -50px;
+  top: -45px;
   left: 50%;
   transform-origin: bottom center;
 }
@@ -90,31 +68,19 @@ body {
 /* Center */
 .center {
   position: absolute;
-  width: 20px;
-  height: 20px;
-  background: gold;
+  width: 18px;
+  height: 18px;
+  background: #fff9c4;
   border-radius: 50%;
-  top: -25px;
+  top: -22px;
   left: 50%;
   transform: translateX(-50%);
-  box-shadow: 0 0 15px gold;
+  box-shadow: 0 0 12px #fff9c4;
 }
 
-/* Animations */
+/* Animation */
 @keyframes sway {
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(6deg); }
-  100% { transform: rotate(0deg); }
-}
-
-/* Falling petals */
-.fall {
-  animation: fall 2s linear forwards;
-}
-
-@keyframes fall {
-  to {
-    transform: translateY(300px) rotate(360deg);
-    opacity: 0;
-  }
+  0%   { transform: translateX(-50%) rotate(0deg); }
+  50%  { transform: translateX(-50%) rotate(6deg); }
+  100% { transform: translateX(-50%) rotate(0deg); }
 }
