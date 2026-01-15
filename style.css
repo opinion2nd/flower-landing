@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #0b132b, #000);
+  height: 100vh;
+  overflow: hidden;
+  color: white;
+}
+
+/* Landing section */
+.hero {
+  position: relative;
+  z-index: 20;
+  text-align: center;
+  padding-top: 12vh;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  opacity: 0.8;
+}
+
+.hero button {
+  margin-top: 20px;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 30px;
+  background: #ff79c6;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 20px #ff79c6;
+}
+
+/* Flower field */
+.field {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* Flower */
+.flower {
+  position: relative;
+  animation: sway 4s ease-in-out infinite;
+  transform-origin: bottom center;
+  filter: drop-shadow(0 0 10px rgba(255, 182, 193, 0.6));
+}
+
+.flower.delay {
+  animation-delay: 2s;
+}
+
+/* Stem */
+.stem {
+  width: 6px;
+  height: 140px;
+  background: linear-gradient(#2ecc71, #27ae60);
+  border-radius: 10px;
+  margin: auto;
+}
+
+/* Petals */
+.petal {
+  position: absolute;
+  width: 45px;
+  height: 65px;
+  background: radial-gradient(circle, #ffb6c1, #ff69b4);
+  border-radius: 50%;
+  top: -50px;
+  left: 50%;
+  transform-origin: bottom center;
+}
+
+.p1 { transform: rotate(0deg) translateX(-50%); }
+.p2 { transform: rotate(90deg) translateX(-50%); }
+.p3 { transform: rotate(180deg) translateX(-50%); }
+.p4 { transform: rotate(270deg) translateX(-50%); }
+
+/* Center */
+.center {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: gold;
+  border-radius: 50%;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 15px gold;
+}
+
+/* Animations */
+@keyframes sway {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(6deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Falling petals */
+.fall {
+  animation: fall 2s linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(300px) rotate(360deg);
+    opacity: 0;
+  }
+}
